@@ -59,11 +59,7 @@ export async function POST(request: Request) {
 
     if (!parsed.success) {
       return NextResponse.json(
-        {
-          success: false,
-          error: "بيانات غير صحيحة / Invalid data",
-          details: parsed.error.errors,
-        },
+        { success: false, error: "Invalid data", details: parsed.error.issues },
         { status: 400 }
       );
     }
